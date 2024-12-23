@@ -1,0 +1,25 @@
+.text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.text-letter {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  animation: slideUp 1s ease-out forwards;
+}
+
+.text-letter.space {
+  display: inline-block;
+  width: 0.3em;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
