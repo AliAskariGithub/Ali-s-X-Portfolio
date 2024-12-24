@@ -19,6 +19,7 @@ export default function Home() {
   const [isBlinking, setIsBlinking] = useState(true);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const connection = (navigator as any).connection || {};
     const speed = connection.downlink || .1;
 

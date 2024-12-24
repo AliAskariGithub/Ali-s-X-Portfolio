@@ -40,6 +40,7 @@ const Contact: React.FC = () => {
         throw new Error("Something went wrong. Please try again.");
       }
     } catch (error) {
+      console.error(error);
       Swal.fire({
         title: "Error!",
         text: "Failed to send your message. Please try again later.",
