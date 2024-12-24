@@ -1,11 +1,11 @@
 import Image from "next/image";
 import RotatingText from "./animated/RotatingText";
 import TextSlideUp from "./animated/TextSlideUp";
-import { RippleButton } from "./ui/button";
 import { IoMdDownload } from "react-icons/io";
 import Link from "next/link";
 import AnimatedBG from "@/components/animated/animatedbg";
 import BoxReveal from "./ui/Boxrevel";
+import { Button } from "./ui/button";
 
 const Hero = () => {
   return (
@@ -41,11 +41,11 @@ const Hero = () => {
             <BoxReveal  duration={0.8}>
               <div className="flex flex-col items-center justify-center gap-4 lg:mt-5 md:items-start">
                 <Link href={"/cv.PDF"} download={true}>
-                  <RippleButton>
+                  <Button>
                     <strong className="flex items-center justify-center gap-2">
                       Download-CV <IoMdDownload />
                     </strong>
-                  </RippleButton>
+                  </Button>
                 </Link>
               </div>
             </BoxReveal>

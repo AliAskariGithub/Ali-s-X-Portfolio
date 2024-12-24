@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { IoIosSend } from "react-icons/io";
-import { RippleButton } from "./ui/button";
+import { Button } from "./ui/button";
 
 const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
               required
               className="w-full p-2 border rounded-lg shadow-xl border-zinc-200 dark:border-transparent dark:bg-zinc-700 dark:text-gray-300"
             />
-            <RippleButton
+            <Button
               type="submit"
               className={
                 isSubmitting
@@ -108,7 +108,7 @@ const Contact: React.FC = () => {
               }
             >
               {isSubmitting ? "Sending..." : "Send"} <IoIosSend />
-            </RippleButton>
+            </Button>
           </form>
         </div>
       </div>

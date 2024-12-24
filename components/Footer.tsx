@@ -3,7 +3,7 @@ import React from "react";
 import { FaLinkedinIn, FaGithub, FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
-import { RippleButton } from "./ui/button";
+import { Button } from "./ui/button";
 
 const Footer = () => {
   return (
@@ -99,9 +99,9 @@ const Footer = () => {
             </Link>
 
             <Link href="#Contact" className="mt-4">
-              <RippleButton className="dark:text-black dark:bg-white">
+              <Button>
                 Contact Me
-              </RippleButton>
+              </Button>
             </Link>
           </div>
         </div>

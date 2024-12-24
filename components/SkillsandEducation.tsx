@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { PinContainer } from "./ui/PinContainer";
-import { RippleButton } from "./ui/button";
+import { Button } from "./ui/button";
 
 const SkillsAndEducation = () => {
   const skills = [
@@ -84,12 +84,13 @@ const SkillsAndEducation = () => {
             ))}
           </div>
 
-          <RippleButton
+          <Button
+          variant={"outline"}
             className="mt-4 px-6 py-2 rounded-lg transition-all flex md:hidden"
             onClick={() => setShowAllSkills(!showAllSkills)}
           >
             {showAllSkills ? "Show less " : "Show More"}
-          </RippleButton>
+          </Button>
         </div>
       </div>
 

@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import TextAnimation from "./animated/TextAnimation"; // Import TextAnimation
-import { Button, RippleButton } from "./ui/button"; // Import RippleButton
-import { ModeToggle } from "./ModeToggle"; // Import ModeToggle
+import TextAnimation from "./animated/TextAnimation";
+import { Button } from "./ui/button";
+import { ModeToggle } from "./ModeToggle";
 import { HiOutlineMenu } from "react-icons/hi";
 import { IoCloseSharp } from "react-icons/io5";
 
@@ -48,7 +48,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between gap-2 zoom-in-bottom w-full lg:w-max">
         <div className="items-center justify-center hidden gap-5 lg:flex">
           <Link href="#Contact">
-            <RippleButton>Contact Me</RippleButton>
+            <Button variant={"default"}>Contact Me</Button>
           </Link>
         </div>
 
@@ -108,9 +108,8 @@ const Navbar = () => {
             <Link
               href="#Contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-gray-800 dark:text-gray-200"
             >
-              <RippleButton>Contact Me</RippleButton>
+              <Button>Contact Me</Button>
             </Link>
             <ModeToggle />
           </div>

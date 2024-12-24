@@ -11,17 +11,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+          "dark:bg-white bg-black text-white hover:bg-black/80 dark:text-black dark:hover:bg-white/80 duration-200 transition shadow",
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
           "border dark:border-white border-black bg-transparent shadow-sm hover:bg-white/20 dark:hover:bg-white/20 dark:hover:text-white/40 hover:text-black/60",
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-black/40 hover:text-accent-foreground",
+        ghost: "hover:bg-black/40 hover:text-white",
         link: "text-primary underline-offset-4 hover:underline",
-        rippleButton:
-          "relative overflow-hidden dark:bg-white bg-black text-white dark:text-black transition duration-300", // New rippleButton variant
       },
       size: {
         default: "h-9 px-4 py-2",
@@ -57,63 +55,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
-const RippleButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    { className, variant = "rippleButton", size, asChild = false, ...props },
-    ref
-  ) => {
-    const buttonRef = React.useRef<HTMLButtonElement>(null);
-
-    const handleRipple = (event: React.MouseEvent<HTMLButtonElement>) => {
-      const button = buttonRef.current;
-
-      if (button) {
-        const ripple = document.createElement("span");
-        const rect = button.getBoundingClientRect();
-        const size = Math.max(button.clientWidth, button.clientHeight);
-        const x = event.clientX - rect.left - size / 2;
-        const y = event.clientY - rect.top - size / 2;
-
-        ripple.style.position = "absolute";
-        ripple.style.width = `${size}px`;
-        ripple.style.height = `${size}px`;
-        ripple.style.left = `${x}px`;
-        ripple.style.top = `${y}px`;
-        ripple.style.background = "#555";
-        ripple.style.borderRadius = "50%";
-        ripple.style.transform = "scale(0)";
-        ripple.style.animation = "ripple-animation 0.6s linear";
-        ripple.style.pointerEvents = "none";
-
-        button.appendChild(ripple);
-
-        ripple.addEventListener("animationend", () => {
-          ripple.remove();
-        });
-      }
-    };
-
-    const Comp = asChild ? Slot : "button";
-
-    return (
-      <Comp
-        className={cn(
-          buttonVariants({ variant, size, className }),
-          "relative overflow-hidden"
-        )}
-        ref={(el) => {
-          if (typeof ref === "function") ref(el);
-          buttonRef.current = el;
-        }}
-        onClick={(event) => {
-          handleRipple(event);
-          props.onClick?.(event);
-        }}
-        {...props}
-      />
-    );
-  }
-);
-RippleButton.displayName = "RippleButton";
-
-export { Button, RippleButton, buttonVariants };
+export { Button, buttonVariants };
